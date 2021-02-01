@@ -23,9 +23,9 @@ const Home = ({ data }) => {
   );
 };
 
-export async function getServerSideProps(context) {
+export const getServerSideProps = async (context) => {
   const url = "https://geo.api.gouv.fr";
-  const { data } = await Axios.get(url + "/regions");
+  const { data } = await Axios.get(`${url}/regions`);
 
   return {
     props: {

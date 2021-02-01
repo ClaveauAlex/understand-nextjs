@@ -10,10 +10,10 @@ const CodeRegion = ({ data }) => {
   );
 };
 
-export async function getServerSideProps(context) {
+export const getServerSideProps = async (context) => {
   const code = context.params.code;
   const url = "https://geo.api.gouv.fr";
-  const data = await Axios.get(url + "/regions/" + code);
+  const data = await Axios.get(`${url}/regions/${code}`);
 
   return {
     props: {
