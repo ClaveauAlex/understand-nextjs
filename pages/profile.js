@@ -19,9 +19,9 @@ const Profile = () => {
         <Layout>
             <h1>Profile</h1>
             <ul>
-                <NameLink name={"John Doe"} />
-                <NameLink name={"Paul"} />
-                <NameLink name={"Jean"} />
+                <NameLink nom="John Doe" />
+                <NameLink nom="Paul" />
+                <NameLink nom="Jean" />
             </ul>
             <h1>{router.query.nom}</h1>
         </Layout>
