@@ -4,7 +4,6 @@ import {useRouter} from "next/router";
 
 export const Header = () => {
     const router = useRouter();
-    console.log(router);
     const styles = {
         header: {
             margin: 20,
