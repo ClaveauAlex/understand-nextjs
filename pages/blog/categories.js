@@ -1,8 +1,11 @@
 import React from "react";
+import {Layout} from "../../components/layout";
 
 const Categories = () => {
     return (
-        <h1>Categories</h1>
+        <Layout>
+            <h1>Categories</h1>
+        </Layout>
     )
 }
 
