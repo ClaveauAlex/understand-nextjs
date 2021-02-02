@@ -1,46 +1,37 @@
 import React from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import styles from "../styles/header.module.css";
 
 export const Header = () => {
   const router = useRouter();
-  const styles = {
-    header: {
-      margin: 20,
-      padding: 20,
-      border: "1px solid #ddd",
-    },
-    link: {
-      margin: 15,
-    },
-    active: {
-      margin: 15,
-      color: "blue",
-    },
-  };
 
   return (
-    <div className="header">
+    <div className={styles.header}>
       <Link href={"/"} passHref>
-        <span style={router.pathname === "/" ? styles.active : styles.link}>
+        <span className={router.pathname === "/" ? styles.active : styles.link}>
           Home
         </span>
       </Link>
       <Link href={"/blog"} passHref>
-        <span style={router.pathname === "/blog" ? styles.active : styles.link}>
+        <span
+          className={router.pathname === "/blog" ? styles.active : styles.link}
+        >
           Blog
         </span>
       </Link>
       <Link href={"/profile"} passHref>
         <span
-          style={router.pathname === "/profile" ? styles.active : styles.link}
+          className={
+            router.pathname === "/profile" ? styles.active : styles.link
+          }
         >
           Profile
         </span>
       </Link>
       <Link href={"/blog/items"} passHref>
         <span
-          style={
+          className={
             router.pathname === "/blog/items" ? styles.active : styles.link
           }
         >
@@ -49,7 +40,7 @@ export const Header = () => {
       </Link>
       <Link href={"/blog/categories"} passHref>
         <span
-          style={
+          className={
             router.pathname === "/blog/categories" ? styles.active : styles.link
           }
         >
@@ -58,22 +49,13 @@ export const Header = () => {
       </Link>
       <Link href={"/departements"} passHref>
         <span
-          style={
+          className={
             router.pathname === "/departements" ? styles.active : styles.link
           }
         >
           Departements
         </span>
       </Link>
-      <style jsx>
-        {`
-          .header {
-            margin: 20px;
-            padding: 20px;
-            border: 1px solid #ddd;
-          }
-        `}
-      </style>
     </div>
   );
 };
