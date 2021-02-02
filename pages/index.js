@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Layout } from "../components/layout";
 import Axios from "axios";
 import Link from "next/link";
@@ -10,6 +10,11 @@ const Home = ({ data }) => {
     margin: 10,
     borderBottom: "1px solid #ddd",
   };
+
+
+  useEffect(() => {
+    localStorage.setItem("jwt-token", "hf566653qsdqsdqdf");
+  }, [])
   return (
     <>
       <Head>
