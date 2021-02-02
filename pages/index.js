@@ -2,6 +2,7 @@ import React from "react";
 import { Layout } from "../components/layout";
 import Axios from "axios";
 import Link from "next/link";
+import Head from "next/head";
 
 const Home = ({ data }) => {
   const styles = {
@@ -10,7 +11,11 @@ const Home = ({ data }) => {
     borderBottom: "1px solid #ddd",
   };
   return (
-    <Layout>
+    <>
+      <Head>
+        <title>Liste des régions</title>
+      </Head>
+      <Layout>
       {data.map((region) => (
         <div style={styles} key={region.code}>
           <Link href="/region/[code]" as={`/region/${region.code}`} passHref>
@@ -20,6 +25,7 @@ const Home = ({ data }) => {
         </div>
       ))}
     </Layout>
+    </>
   );
 };
 

@@ -3,6 +3,7 @@ import { Layout } from "../components/layout";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import Axios from "axios";
+import Head from "next/head";
 
 const Profile = () => {
   const styles = {
@@ -24,16 +25,21 @@ const Profile = () => {
   }, []);
 
   return (
-    <Layout>
-      {data &&
-        data.map((user) => (
-          <div style={styles} key={user.id}>
-            <h1>{user.name}</h1>
-            <div>Email: {user.email}</div>
-            <div>Telephone: {user.phone}</div>
-          </div>
-        ))}
-    </Layout>
+    <>
+      <Head>
+        <title>Liste des utilisateurs</title>
+      </Head>
+      <Layout>
+        {data &&
+          data.map((user) => (
+            <div style={styles} key={user.id}>
+              <h1>{user.name}</h1>
+              <div>Email: {user.email}</div>
+              <div>Telephone: {user.phone}</div>
+            </div>
+          ))}
+      </Layout>
+    </>
   );
 };
 

@@ -2,6 +2,7 @@ import React from "react";
 import { Layout } from "../components/layout";
 import Link from "next/link";
 import Axios from "axios";
+import Head from "next/head";
 
 const Blog = ({ posts }) => {
   const styles = {
@@ -16,19 +17,24 @@ const Blog = ({ posts }) => {
     },
   };
   return (
-    <Layout>
-      {posts.map((post) => {
-        <div style={styles.main} key={post._id}>
-          <h1>{post.title}</h1>
-          <Link href="/blog/[id]" as={`/blog/${post._id}`} passHref>
-            <div>
-              <img src={post.pictures[0]} style={styles.img} />
-            </div>
-          </Link>
-          <div>{post.body}</div>
-        </div>;
-      })}
-    </Layout>
+    <>
+      <Head>
+        <title>Liste des blogs</title>
+      </Head>
+      <Layout>
+        {posts.map((post) => {
+          <div style={styles.main} key={post._id}>
+            <h1>{post.title}</h1>
+            <Link href="/blog/[id]" as={`/blog/${post._id}`} passHref>
+              <div>
+                <img src={post.pictures[0]} style={styles.img} />
+              </div>
+            </Link>
+            <div>{post.body}</div>
+          </div>;
+        })}
+      </Layout>
+    </>
   );
 };
 
