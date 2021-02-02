@@ -36,6 +36,9 @@ export const Header = () => {
             <Link href={"/blog/categories"} passHref>
                 <span style={router.pathname === "/blog/categories" ? styles.active : styles.link}>Categories</span>
             </Link>
+            <Link href={"/departements"} passHref>
+                <span style={router.pathname === "/departements" ? styles.active : styles.link}>Departements</span>
+            </Link>
         </div>
     )
 }
