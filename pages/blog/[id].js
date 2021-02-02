@@ -2,15 +2,24 @@ import React from "react";
 import { useRouter } from "next/router";
 import { Layout } from "../../components/layout";
 import Axios from "axios";
+import Head from "next/head";
 
 const Titre = ({ data }) => {
-  return <Layout>
-      <h1>{data.title}</h1>
-      <div>
-          <img src={data.pictures[0]}/>
-      </div>
-      <p>{data.description}</p>
-  </Layout>;
+  return (
+    <>
+      <Head>
+        <title>{data.title}</title>
+      </Head>
+      <Layout>
+        <h1>{data.title}</h1>
+        <div>
+          <img src={data.pictures[0]} />
+        </div>
+        <p>{data.description}</p>
+      </Layout>
+      ;
+    </>
+  );
 };
 
 export const getStaticPaths = async (context) => {
