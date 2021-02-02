@@ -18,11 +18,13 @@ const Blog = ({ posts }) => {
   return (
     <Layout>
       {posts.map((post) => {
-        <div style={styles.main}>
+        <div style={styles.main} key={post._id}>
           <h1>{post.title}</h1>
-          <div>
-            <img src={post.pictures[0]} style={styles.img} />
-          </div>
+          <Link href="/blog/[id]" as={`/blog/${post._id}`} passHref>
+            <div>
+              <img src={post.pictures[0]} style={styles.img} />
+            </div>
+          </Link>
           <div>{post.body}</div>
         </div>;
       })}
