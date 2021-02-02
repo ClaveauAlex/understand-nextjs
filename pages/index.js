@@ -30,8 +30,7 @@ const Home = ({ data }) => {
 };
 
 export const getServerSideProps = async (context) => {
-  const url = "https://geo.api.gouv.fr";
-  const { data } = await Axios.get(`${url}/regions`);
+  const { data } = await Axios.get(`${process.env.API_GEO}/regions`);
 
   return {
     props: {
